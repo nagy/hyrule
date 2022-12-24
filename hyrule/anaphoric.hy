@@ -12,6 +12,18 @@ concise and easy to read.
   hyrule.macrotools [defmacro!]
   hyrule.argmove [->])
 
+(defmacro ap-let [form #* body]
+  "As :ref:`let <let>`, but the result of the form is named ``it`` in
+  the subsequent forms.
+
+  Examples:
+    ::
+
+       => (ap-let (.get os.environ \"PYTHONPATH\")
+       ...   (print \"Your PYTHONPATH is\" it))
+  "
+  `(let [it ~form]
+     ~@body))
 
 (defmacro ap-if [test-form then-form [else-form None]]
   "As :ref:`if <if>`, but the result of the test form is named ``it`` in
