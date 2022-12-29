@@ -231,6 +231,27 @@ concise and easy to read.
   `(with [it ~form]
      ~@body))
 
+(defmacro ap-takewhile [form xs]
+  `(do (import itertools [takewhile])
+      (takewhile (fn [it] ~form) ~xs))
+  ;; `(for [it ~xs]
+  ;;    (if ~form
+  ;;        (yield it)
+  ;;        (break)))
+      )
+
+(defmacro ap-dropwhile [form xs]
+  `(do (import itertools [dropwhile])
+      (dropwhile (fn [it] ~form) ~xs))
+  ;; `(let [itr (iter ~xs)]
+  ;;    (for [it itr]
+  ;;      (unless  ~form
+  ;;        (yield it)
+  ;;        (break)))
+  ;;    (for [it itr]
+  ;;      (yield it)))
+  )
+
 (defreader %
   "Makes an expression into a function with an implicit ``%`` parameter list.
 
