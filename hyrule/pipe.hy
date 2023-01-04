@@ -70,15 +70,15 @@
                           (try
                             (print (yaml.safe_dump ~argname) :end "")
                             (except [yaml.representer.RepresenterError]
-                              (print (yaml.safe_dump (lfor l ~argname l)) :end ""))))
+                              (print (yaml.safe_dump (ap-lfor ~argname it)) :end ""))))
                  "json" (try
                           (print (json.dumps ~argname))
                           (except [TypeError]
-                            (print (json.dumps (lfor l ~argname l)))))
+                            (print (json.dumps (ap-lfor ~argname it)))))
                  "len" (print (len ~argname))
                  "pcap" (do (import scapy.all [wrpcap])
                             (wrpcap sys.stdout.buffer ~argname))
-                 "collect" (pprint.pprint (lfor l ~argname l))
+                 "collect" (pprint.pprint (ap-lfor ~argname it))
                  else (do (pprint.pprint ~argname) ~argname)))))
 
 

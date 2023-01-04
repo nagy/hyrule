@@ -252,6 +252,9 @@ concise and easy to read.
   ;;      (yield it)))
   )
 
+(defmacro ap-lfor [xs #* body]
+  `(lfor it ~xs ~@body ))
+
 (defreader %
   "Makes an expression into a function with an implicit ``%`` parameter list.
 
