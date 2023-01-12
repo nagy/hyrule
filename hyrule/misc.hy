@@ -62,7 +62,7 @@
     value))
 
 
-(defn dec [n]
+(defn dec [n [delta 1]]
   "Decrement `n` by 1.
 
   Returns one less than *x*. Equivalent to ``(- x 1)``. Raises ``TypeError``
@@ -83,11 +83,16 @@
 
         => (dec 12.3)
         11.3
+
+    ::
+
+        => (dec 1.4 0.4)
+        1.0
   "
-  (- n 1))
+  (- n delta))
 
 
-(defn inc [n]
+(defn inc [n [delta 1]]
   "Increment `n` by 1.
 
   Returns one more than *x*. Equivalent to ``(+ x 1)``. Raises ``TypeError``
@@ -108,8 +113,13 @@
 
        => (inc 12.3)
        13.3
+
+    ::
+
+        => (inc 1.4 0.4)
+        1.8
   "
-  (+ n 1))
+  (+ n delta))
 
 
 (defmacro of [base #* args]

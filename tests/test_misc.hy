@@ -22,12 +22,14 @@
 (defn test-dec []
   (assert (= 0 (dec 1)))
   (assert (= -1 (dec 0)))
-  (assert (= 0 (dec (dec 2)))))
+  (assert (= 0 (dec (dec 2))))
+  (assert (= 1 (dec 1.23 0.23))))
 
 
 (defn test-inc []
   (assert (= 3 (inc 2)))
   (assert (= 0 (inc -1)))
+  (assert (= 6.28 (inc 3.14 3.14)))
 
   (defclass X [object]
     (defn __add__ [self other] (.format "__add__ got {}" other)))
