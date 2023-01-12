@@ -121,6 +121,11 @@
   "
   (+ n delta))
 
+(defmacro incv [var [delta 1]]
+  `(setv ~var (inc ~var ~delta)))
+(defmacro decv [var [delta 1]]
+  `(setv ~var (dec ~var ~delta)))
+
 
 (defmacro of [base #* args]
   "Shorthand for indexing for type annotations.

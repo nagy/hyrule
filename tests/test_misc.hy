@@ -1,5 +1,5 @@
 (require
-  hyrule [comment of smacrolet])
+  hyrule [comment of smacrolet decv incv])
 (import
   pytest
   typing [List Dict]
@@ -35,6 +35,16 @@
     (defn __add__ [self other] (.format "__add__ got {}" other)))
   (assert (= (inc (X)) "__add__ got 1")))
 
+
+(defn test-decv []
+  (setv subj 10)
+  (decv subj 10)
+  (assert (= 0 subj)))
+
+(defn test-incv []
+  (setv subj 10)
+  (incv subj 10)
+  (assert (= 20 subj)))
 
 (defn test-of []
   (assert (= (of str) str))
