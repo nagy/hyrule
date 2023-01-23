@@ -6,8 +6,7 @@
   hyrule.destructure *
   hyrule.macrotools *
   hyrule.misc *
-  hyrule.sequences *
-  hyrule.pipe *)
+  hyrule.sequences *)
 (import
   hyrule.collections *
   hyrule.destructure *
@@ -15,5 +14,4 @@
   hyrule.macrotools *
   hyrule.misc *
   hyrule.hypprint *
-  hyrule.sequences *
-  hyrule.pipe *)
+  hyrule.sequences *)
